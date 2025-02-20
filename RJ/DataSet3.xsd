@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet3" targetNamespace="http://tempuri.org/DataSet3.xsd" xmlns:mstns="http://tempuri.org/DataSet3.xsd" xmlns="http://tempuri.org/DataSet3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet3" msprop:Generator_UserDSName="DataSet3">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Student" msprop:Generator_TableClassName="StudentDataTable" msprop:Generator_TableVarName="tableStudent" msprop:Generator_RowChangedName="StudentRowChanged" msprop:Generator_TablePropName="Student" msprop:Generator_RowDeletingName="StudentRowDeleting" msprop:Generator_RowChangingName="StudentRowChanging" msprop:Generator_RowEvHandlerName="StudentRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentRowDeleted" msprop:Generator_RowClassName="StudentRow" msprop:Generator_UserTableName="Student" msprop:Generator_RowEvArgName="StudentRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Rg_x0023_" msprop:Generator_ColumnVarNameInTable="_columnRg_" msprop:Generator_ColumnPropNameInRow="_Rg_" msprop:Generator_ColumnPropNameInTable="_Rg_Column" msprop:Generator_UserColumnName="Rg#" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Bill_Info_Total" msprop:Generator_TableClassName="Bill_Info_TotalDataTable" msprop:Generator_TableVarName="tableBill_Info_Total" msprop:Generator_TablePropName="Bill_Info_Total" msprop:Generator_RowDeletingName="Bill_Info_TotalRowDeleting" msprop:Generator_RowChangingName="Bill_Info_TotalRowChanging" msprop:Generator_RowEvHandlerName="Bill_Info_TotalRowChangeEventHandler" msprop:Generator_RowDeletedName="Bill_Info_TotalRowDeleted" msprop:Generator_UserTableName="Bill_Info_Total" msprop:Generator_RowChangedName="Bill_Info_TotalRowChanged" msprop:Generator_RowEvArgName="Bill_Info_TotalRowChangeEvent" msprop:Generator_RowClassName="Bill_Info_TotalRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="total_amount" msprop:Generator_ColumnVarNameInTable="columntotal_amount" msprop:Generator_ColumnPropNameInRow="total_amount" msprop:Generator_ColumnPropNameInTable="total_amountColumn" msprop:Generator_UserColumnName="total_amount" type="xs:string" minOccurs="0" />
+              <xs:element name="total_weight" msprop:Generator_ColumnVarNameInTable="columntotal_weight" msprop:Generator_ColumnPropNameInRow="total_weight" msprop:Generator_ColumnPropNameInTable="total_weightColumn" msprop:Generator_UserColumnName="total_weight" type="xs:string" minOccurs="0" />
+              <xs:element name="weight_in_mun" msprop:Generator_ColumnVarNameInTable="columnweight_in_mun" msprop:Generator_ColumnPropNameInRow="weight_in_mun" msprop:Generator_ColumnPropNameInTable="weight_in_munColumn" msprop:Generator_UserColumnName="weight_in_mun" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
