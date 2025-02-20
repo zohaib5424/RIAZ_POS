@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSet1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>4a26bc67-e9db-454a-bab8-2ed9a30de301</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>DataSet1</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Transaction_Id">
+          <DataField>Transaction_Id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Transaction_Date">
+          <DataField>Transaction_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cashier">
+          <DataField>Cashier</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Main_Customer">
+          <DataField>Main_Customer</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Customer_Or_Vendor">
+          <DataField>Customer_Or_Vendor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Customer">
+          <DataField>Customer</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DataSet1</rd:DataSetName>
+        <rd:SchemaPath>F:\AFD\.Net C#\Zohaib Pos_Sabzi_Mandi\Backups\14\RJ\RJ\DataSet1.xsd</rd:SchemaPath>
+        <rd:TableName>Bill_Clients_Info</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>4.32701in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>2.19546in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="Rectangle1">
+                          <ReportItems>
+                            <Subreport Name="Subreport4">
+                              <ReportName>Sub_Report1</ReportName>
+                              <Parameters>
+                                <Parameter Name="Id">
+                                  <Value>=Fields!Id.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>1.63297in</Top>
+                              <Left>0.14194in</Left>
+                              <Height>0.26042in</Height>
+                              <Width>4.10174in</Width>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport2">
+                              <ReportName>SubReport2</ReportName>
+                              <Parameters>
+                                <Parameter Name="id">
+                                  <Value>=Fields!Id.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>1.9038in</Top>
+                              <Left>0.14194in</Left>
+                              <Height>0.23958in</Height>
+                              <Width>4.10174in</Width>
+                              <ZIndex>1</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Textbox Name="Textbox14">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>بل نمبر</Value>
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>12pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>1.01112in</Top>
+                              <Left>3.92771in</Left>
+                              <Height>0.26321in</Height>
+                              <Width>0.31597in</Width>
+                              <ZIndex>2</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Transaction_Id">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Transaction_Id.Value</Value>
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>12pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Transaction_Id</rd:DefaultName>
+                              <Top>0.99863in</Top>
+                              <Left>2.15367in</Left>
+                              <Height>0.26876in</Height>
+                              <Width>1.73862in</Width>
+                              <ZIndex>3</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Customer">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Customer.Value</Value>
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>16pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Customer</rd:DefaultName>
+                              <Top>1.25975in</Top>
+                              <Left>1.94994in</Left>
+                              <Height>0.35099in</Height>
+                              <Width>2.07639in</Width>
+                              <ZIndex>4</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Customer_Or_Vendor">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>نام</Value>
+                                      <Style>
+                                        <FontSize>11pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Customer_Or_Vendor</rd:DefaultName>
+                              <Top>1.42434in</Top>
+                              <Left>4.0595in</Left>
+                              <Height>0.17361in</Height>
+                              <Width>0.18418in</Width>
+                              <ZIndex>5</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox20">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>تاریخ</Value>
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>12pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>1.01738in</Top>
+                              <Left>1.02411in</Left>
+                              <Height>0.25695in</Height>
+                              <Width>0.27167in</Width>
+                              <ZIndex>6</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Transaction_Date">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Transaction_Date.Value</Value>
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>12pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Transaction_Date</rd:DefaultName>
+                              <Top>0.99863in</Top>
+                              <Left>0.14194in</Left>
+                              <Height>0.2764in</Height>
+                              <Width>0.82592in</Width>
+                              <ZIndex>7</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Main_Customer1">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Main_Customer.Value</Value>
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>12pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                        <Color>Gray</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Main_Customer1</rd:DefaultName>
+                              <Top>1.32433in</Top>
+                              <Left>0.14194in</Left>
+                              <Height>0.26904in</Height>
+                              <Width>1.67605in</Width>
+                              <ZIndex>8</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Bill_Type">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Parameters!Bill_Type.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Bill_Type</rd:DefaultName>
+                              <Top>0.47917in</Top>
+                              <Left>0.76481in</Left>
+                              <Height>0.16528in</Height>
+                              <Width>1.40828in</Width>
+                              <ZIndex>9</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Company_Name">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value />
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>26pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Company_Name</rd:DefaultName>
+                              <Top>0.18347cm</Top>
+                              <Left>2.21784in</Left>
+                              <Height>0.57847in</Height>
+                              <Width>2.02584in</Width>
+                              <ZIndex>10</ZIndex>
+                              <Style>
+                                <Border />
+                                <VerticalAlign>Bottom</VerticalAlign>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="abc">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>سبزی فروٹ آرڈر سپلایئرز</Value>
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>16pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <Top>0.6507in</Top>
+                              <Left>2.21337in</Left>
+                              <Height>0.3389in</Height>
+                              <Width>2.03031in</Width>
+                              <ZIndex>11</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox12">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value />
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>13pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox4</rd:DefaultName>
+                              <Top>0.08126in</Top>
+                              <Left>0.76481in</Left>
+                              <Height>0.32847in</Height>
+                              <Width>1.40828in</Width>
+                              <ZIndex>12</ZIndex>
+                              <Style>
+                                <Border />
+                                <VerticalAlign>Top</VerticalAlign>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Address1">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Parameters!Address.Value</Value>
+                                      <Style>
+                                        <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                        <FontSize>12pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Address1</rd:DefaultName>
+                              <Top>0.7139in</Top>
+                              <Left>0.14194in</Left>
+                              <Height>0.2757in</Height>
+                              <Width>2.07143in</Width>
+                              <ZIndex>13</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <VerticalAlign>Middle</VerticalAlign>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line3">
+                              <Top>1.27225in</Top>
+                              <Left>0.14194in</Left>
+                              <Height>0in</Height>
+                              <Width>4.10174in</Width>
+                              <ZIndex>14</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Solid</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line4">
+                              <Top>1in</Top>
+                              <Left>0.14194in</Left>
+                              <Height>0in</Height>
+                              <Width>4.10174in</Width>
+                              <ZIndex>15</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Solid</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Rectangle>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Details1">
+                    <PageBreak>
+                      <BreakLocation>End</BreakLocation>
+                    </PageBreak>
+                  </Group>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet1</DataSetName>
+            <Left>0.06052in</Left>
+            <Height>2.19546in</Height>
+            <Width>4.32701in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>2.2385in</Height>
+        <Style />
+      </Body>
+      <Width>4.48406in</Width>
+      <Page>
+        <PageHeight>8.9in</PageHeight>
+        <PageWidth>6.6in</PageWidth>
+        <LeftMargin>0.9in</LeftMargin>
+        <TopMargin>0.1in</TopMargin>
+        <BottomMargin>0.1in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="Company_Name">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter2</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Address">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Contact_Number">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Date">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Time">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="totalqty">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="nettotal">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Discount_Amount">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Tax_Amount">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Service_Charges">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_Amount">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Cashier">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Customer">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Paid_Amount">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Change">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Bill_Type">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Customer_Or_Vendor">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TotalWeight">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Main_Customer">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>2</NumberOfColumns>
+      <NumberOfRows>10</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>Company_Name</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>Address</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>Contact_Number</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>Date</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Time</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>totalqty</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>nettotal</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>Discount_Amount</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>Tax_Amount</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>Service_Charges</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>5</RowIndex>
+          <ParameterName>Total_Amount</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>5</RowIndex>
+          <ParameterName>Cashier</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>6</RowIndex>
+          <ParameterName>Customer</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>6</RowIndex>
+          <ParameterName>Paid_Amount</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>7</RowIndex>
+          <ParameterName>Change</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>7</RowIndex>
+          <ParameterName>Bill_Type</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>8</RowIndex>
+          <ParameterName>Customer_Or_Vendor</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>8</RowIndex>
+          <ParameterName>TotalWeight</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>9</RowIndex>
+          <ParameterName>Main_Customer</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <EmbeddedImages>
+    <EmbeddedImage Name="ID471d524083284e2e98fe7821443ab1c9">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="RjWhite">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>a05e7bd1-663d-4955-9a5a-4f06bf63ed08</rd:ReportID>
+</Report>

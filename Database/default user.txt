@@ -1,0 +1,1 @@
+INSERT [dbo].[login] ([id], [username], [user_id], [password], [pattern], [usertype], [AddedBy_UserId], [_date], [_time], [status], [active_password_type]) VALUES (N'1', N'Admin', N'admin', N'123', N'', N'Admin', N'1', CAST(N'2018-10-10' AS Date), CAST(N'00:00:00' AS Time), N'1', N'Password')

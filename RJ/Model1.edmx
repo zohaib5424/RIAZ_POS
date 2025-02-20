@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="POS_Sabzi_MandiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Bill_Type" Type="nvarchar" MaxLength="250" />
+          <Property Name="Bill_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Bill_Date" Type="date" />
+          <Property Name="Bill_Time" Type="time" Precision="7" />
+          <Property Name="Net_Total_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Discount_Type" Type="nvarchar" MaxLength="250" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Discount_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Tax_Type" Type="nvarchar" MaxLength="250" />
+          <Property Name="Tax_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Service_Charges" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Voucher_Or_Coupon_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Vouchar_Coupon_Discount_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Paid_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Balance" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="_Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Customer_Vendor_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Payment_Method" Type="nvarchar" MaxLength="250" />
+          <Property Name="Card_Number" Type="nvarchar" MaxLength="250" />
+          <Property Name="Card_Holder_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Card_Transaction_No" Type="nvarchar" MaxLength="250" />
+          <Property Name="Card_Type" Type="nvarchar" MaxLength="250" />
+          <Property Name="Month" Type="nvarchar" MaxLength="250" />
+          <Property Name="Year" Type="nvarchar" MaxLength="250" />
+          <Property Name="Security_Code" Type="nvarchar" MaxLength="250" />
+          <Property Name="Cheque_No" Type="nvarchar" MaxLength="250" />
+          <Property Name="Bank_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Bank_Account_No" Type="nvarchar" MaxLength="250" />
+          <Property Name="Payment_Note" Type="nvarchar" MaxLength="250" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_Date" Type="date" />
+          <Property Name="_Time" Type="time" Precision="7" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Bill_Details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Bill_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Item_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Qty" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Unit_Cost" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Manufacturing_Date" Type="date" />
+          <Property Name="Expiry_Date" Type="date" />
+          <Property Name="Batch_Or_Lot_Number" Type="nvarchar" MaxLength="250" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+          <Property Name="item_type" Type="nvarchar" MaxLength="250" />
+          <Property Name="update_status" Type="varchar" MaxLength="250" />
+          <Property Name="update_date" Type="date" />
+          <Property Name="mazdori" Type="decimal" Precision="18" Scale="3" />
+        </EntityType>
+        <EntityType Name="Bill_Voucher_Or_Coupons_Details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Bill_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Voucher_Coupon_Code" Type="nvarchar" MaxLength="250" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Brand_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_Date" Type="date" />
+          <Property Name="_Time" Type="time" Precision="7" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="parent_location" Type="nvarchar" MaxLength="250" />
+          <Property Name="child_location" Type="nvarchar" MaxLength="250" />
+          <Property Name="status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Customer_Or_Vendor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Customer_Vendor_Type" Type="nvarchar" MaxLength="250" />
+          <Property Name="customer_Or_Vendor_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Contact_Number" Type="nvarchar" MaxLength="250" />
+          <Property Name="_Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_Date" Type="date" />
+          <Property Name="_Time" Type="time" Precision="7" />
+          <Property Name="status" Type="nvarchar" MaxLength="250" />
+          <Property Name="parent" Type="varchar" MaxLength="250" />
+          <Property Name="Percentage" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="items">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="sku" Type="nvarchar" MaxLength="250" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Brand_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Unit_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Category_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="250" />
+          <Property Name="Picture" Type="varbinary(max)" />
+          <Property Name="Purchase_Price" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Retail_Price" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Have_Mfg_Or_Exp_Date" Type="nvarchar" MaxLength="250" />
+          <Property Name="Have_Batch_Or_Lot_No" Type="nvarchar" MaxLength="250" />
+          <Property Name="AlertQty" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Qty" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Detail" Type="nvarchar" MaxLength="250" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_Date" Type="date" />
+          <Property Name="_Time" Type="time" Precision="7" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+          <Property Name="weight" Type="nvarchar" MaxLength="250" />
+          <Property Name="update_status" Type="varchar" MaxLength="250" />
+          <Property Name="update_date" Type="date" />
+          <Property Name="Mazdori" Type="decimal" Precision="18" Scale="3" />
+        </EntityType>
+        <EntityType Name="locations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="parent_location" Type="nvarchar" MaxLength="250" />
+          <Property Name="child_location" Type="nvarchar" MaxLength="250" />
+          <Property Name="status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'POS_Sabzi_Mandi.dbo.login' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="login">
+          <Property Name="id" Type="nvarchar" MaxLength="250" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="250" />
+          <Property Name="password" Type="nvarchar" MaxLength="250" />
+          <Property Name="pattern" Type="nvarchar" MaxLength="250" />
+          <Property Name="usertype" Type="nvarchar" MaxLength="250" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_date" Type="date" />
+          <Property Name="_time" Type="time" Precision="7" />
+          <Property Name="status" Type="nvarchar" MaxLength="250" />
+          <Property Name="active_password_type" Type="nvarchar" MaxLength="250" />
+        </EntityType>-->
+        <EntityType Name="loginlogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Login_Userid" Type="varchar" MaxLength="250" />
+          <Property Name="Login_Date" Type="date" />
+          <Property Name="Login_Time" Type="time" Precision="7" />
+          <Property Name="Status" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="mml">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="lk" Type="varchar" MaxLength="250" />
+          <Property Name="dfrom" Type="date" />
+          <Property Name="dto" Type="date" />
+          <Property Name="status" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="printed_bills_log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bill_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Print_Status" Type="nvarchar" MaxLength="250" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_Date" Type="date" />
+          <Property Name="_Time" Type="time" Precision="7" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'POS_Sabzi_Mandi.dbo.Report' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Report">
+          <Property Name="id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Report_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="report_date" Type="date" />
+          <Property Name="Category_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Credit_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Recovery_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Expense_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Discount_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Net_Total" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Profit" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Sale_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Balance" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_Date" Type="date" />
+          <Property Name="_Time" Type="time" Precision="7" />
+          <Property Name="status" Type="nvarchar" MaxLength="250" />
+          <Property Name="returnamount" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'POS_Sabzi_Mandi.dbo.Report_Details' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Report_Details">
+          <Property Name="id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Report_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Item_Id" Type="nvarchar" MaxLength="250" />
+          <Property Name="Quantity_In_Stock" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Purchase_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Sale_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Profit_Per_Unit" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Sale_Qty" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Profit" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Sale_Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="status" Type="nvarchar" MaxLength="250" />
+        </EntityType>-->
+        <EntityType Name="settings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="setting_code" Type="nvarchar" MaxLength="250" />
+          <Property Name="setting" Type="nvarchar(max)" />
+          <Property Name="value" Type="nvarchar" MaxLength="250" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_date" Type="date" />
+          <Property Name="_time" Type="time" Precision="7" />
+          <Property Name="status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Taxes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Tax_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Tax_Percent" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_Date" Type="date" />
+          <Property Name="_Time" Type="time" Precision="7" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Units">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Unit_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Short_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="AddedBy_UserId" Type="nvarchar" MaxLength="250" />
+          <Property Name="_Date" Type="date" />
+          <Property Name="_Time" Type="time" Precision="7" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Voucher_Or_Coupons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Voucher_Coupon_Code" Type="nvarchar" MaxLength="250" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="FromDate" Type="date" />
+          <Property Name="FromTime" Type="time" Precision="7" />
+          <Property Name="ToDate" Type="date" />
+          <Property Name="ToTime" Type="time" Precision="7" />
+          <Property Name="_Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityContainer Name="POS_Sabzi_MandiModelStoreContainer">
+          <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill_Details" EntityType="Self.Bill_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill_Voucher_Or_Coupons_Details" EntityType="Self.Bill_Voucher_Or_Coupons_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer_Or_Vendor" EntityType="Self.Customer_Or_Vendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="items" EntityType="Self.items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="locations" EntityType="Self.locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loginlogs" EntityType="Self.loginlogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mml" EntityType="Self.mml" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="printed_bills_log" EntityType="Self.printed_bills_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="settings" EntityType="Self.settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Taxes" EntityType="Self.Taxes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Units" EntityType="Self.Units" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voucher_Or_Coupons" EntityType="Self.Voucher_Or_Coupons" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="POS_Sabzi_MandiModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bill_Type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Bill_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Bill_Date" Type="DateTime" Precision="0" />
+          <Property Name="Bill_Time" Type="Time" Precision="7" />
+          <Property Name="Net_Total_Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Discount_Type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Discount_Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Tax_Type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Tax_Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Service_Charges" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Voucher_Or_Coupon_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Vouchar_Coupon_Discount_Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Paid_Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Balance" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="C_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Vendor_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Method" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Card_Number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Card_Holder_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Card_Transaction_No" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Card_Type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Security_Code" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Cheque_No" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Bank_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Bank_Account_No" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AddedBy_UserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="C_Date" Type="DateTime" Precision="0" />
+          <Property Name="C_Time" Type="Time" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Bill_Details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bill_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Item_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Unit_Cost" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Manufacturing_Date" Type="DateTime" Precision="0" />
+          <Property Name="Expiry_Date" Type="DateTime" Precision="0" />
+          <Property Name="Batch_Or_Lot_Number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="item_type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="update_status" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="update_date" Type="DateTime" Precision="0" />
+          <Property Name="mazdori" Type="Decimal" Precision="18" Scale="3" />
+        </EntityType>
+        <EntityType Name="Bill_Voucher_Or_Coupons_Details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bill_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Voucher_Coupon_Code" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Brand_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AddedBy_UserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="C_Date" Type="DateTime" Precision="0" />
+          <Property Name="C_Time" Type="Time" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="parent_location" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="child_location" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer_Or_Vendor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Vendor_Type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="customer_Or_Vendor_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="C_Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AddedBy_UserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="C_Date" Type="DateTime" Precision="0" />
+          <Property Name="C_Time" Type="Time" Precision="7" />
+          <Property Name="status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="parent" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Percentage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sku" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Brand_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Unit_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Category_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Purchase_Price" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Retail_Price" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Have_Mfg_Or_Exp_Date" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Have_Batch_Or_Lot_No" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AlertQty" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Qty" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AddedBy_UserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="C_Date" Type="DateTime" Precision="0" />
+          <Property Name="C_Time" Type="Time" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="weight" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="update_status" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="update_date" Type="DateTime" Precision="0" />
+          <Property Name="Mazdori" Type="Decimal" Precision="18" Scale="3" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="parent_location" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="child_location" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="loginlog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login_Userid" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Login_Date" Type="DateTime" Precision="0" />
+          <Property Name="Login_Time" Type="Time" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mml">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lk" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="dfrom" Type="DateTime" Precision="0" />
+          <Property Name="dto" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="printed_bills_log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bill_Id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Print_Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AddedBy_UserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="C_Date" Type="DateTime" Precision="0" />
+          <Property Name="C_Time" Type="Time" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="setting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="setting_code" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="setting1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="value" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AddedBy_UserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="C_date" Type="DateTime" Precision="0" />
+          <Property Name="C_time" Type="Time" Precision="7" />
+          <Property Name="status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tax">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tax_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Tax_Percent" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="AddedBy_UserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="C_Date" Type="DateTime" Precision="0" />
+          <Property Name="C_Time" Type="Time" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Unit_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Short_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AddedBy_UserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="C_Date" Type="DateTime" Precision="0" />
+          <Property Name="C_Time" Type="Time" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Voucher_Or_Coupons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Voucher_Coupon_Code" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="FromTime" Type="Time" Precision="7" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="ToTime" Type="Time" Precision="7" />
+          <Property Name="C_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="POS_Sabzi_MandiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bills" EntityType="Self.Bill" />
+          <EntitySet Name="Bill_Details" EntityType="Self.Bill_Details" />
+          <EntitySet Name="Bill_Voucher_Or_Coupons_Details" EntityType="Self.Bill_Voucher_Or_Coupons_Details" />
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Customer_Or_Vendor" EntityType="Self.Customer_Or_Vendor" />
+          <EntitySet Name="items" EntityType="Self.item" />
+          <EntitySet Name="locations" EntityType="Self.location" />
+          <EntitySet Name="loginlogs" EntityType="Self.loginlog" />
+          <EntitySet Name="mmls" EntityType="Self.mml" />
+          <EntitySet Name="printed_bills_log" EntityType="Self.printed_bills_log" />
+          <EntitySet Name="settings" EntityType="Self.setting" />
+          <EntitySet Name="Taxes" EntityType="Self.Tax" />
+          <EntitySet Name="Units" EntityType="Self.Unit" />
+          <EntitySet Name="Voucher_Or_Coupons" EntityType="Self.Voucher_Or_Coupons" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="POS_Sabzi_MandiModelStoreContainer" CdmEntityContainer="POS_Sabzi_MandiEntities">
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Bill_Type" ColumnName="Bill_Type" />
+                <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+                <ScalarProperty Name="Bill_Date" ColumnName="Bill_Date" />
+                <ScalarProperty Name="Bill_Time" ColumnName="Bill_Time" />
+                <ScalarProperty Name="Net_Total_Amount" ColumnName="Net_Total_Amount" />
+                <ScalarProperty Name="Discount_Type" ColumnName="Discount_Type" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Discount_Amount" ColumnName="Discount_Amount" />
+                <ScalarProperty Name="Tax_Type" ColumnName="Tax_Type" />
+                <ScalarProperty Name="Tax_Amount" ColumnName="Tax_Amount" />
+                <ScalarProperty Name="Service_Charges" ColumnName="Service_Charges" />
+                <ScalarProperty Name="Voucher_Or_Coupon_Id" ColumnName="Voucher_Or_Coupon_Id" />
+                <ScalarProperty Name="Vouchar_Coupon_Discount_Amount" ColumnName="Vouchar_Coupon_Discount_Amount" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+                <ScalarProperty Name="Paid_Amount" ColumnName="Paid_Amount" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="C_Description" ColumnName="_Description" />
+                <ScalarProperty Name="Customer_Vendor_Id" ColumnName="Customer_Vendor_Id" />
+                <ScalarProperty Name="Payment_Method" ColumnName="Payment_Method" />
+                <ScalarProperty Name="Card_Number" ColumnName="Card_Number" />
+                <ScalarProperty Name="Card_Holder_Name" ColumnName="Card_Holder_Name" />
+                <ScalarProperty Name="Card_Transaction_No" ColumnName="Card_Transaction_No" />
+                <ScalarProperty Name="Card_Type" ColumnName="Card_Type" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Security_Code" ColumnName="Security_Code" />
+                <ScalarProperty Name="Cheque_No" ColumnName="Cheque_No" />
+                <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+                <ScalarProperty Name="Bank_Account_No" ColumnName="Bank_Account_No" />
+                <ScalarProperty Name="Payment_Note" ColumnName="Payment_Note" />
+                <ScalarProperty Name="AddedBy_UserId" ColumnName="AddedBy_UserId" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+                <ScalarProperty Name="C_Time" ColumnName="_Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bill_Details">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.Bill_Details">
+              <MappingFragment StoreEntitySet="Bill_Details">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+                <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Unit_Cost" ColumnName="Unit_Cost" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+                <ScalarProperty Name="Manufacturing_Date" ColumnName="Manufacturing_Date" />
+                <ScalarProperty Name="Expiry_Date" ColumnName="Expiry_Date" />
+                <ScalarProperty Name="Batch_Or_Lot_Number" ColumnName="Batch_Or_Lot_Number" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="item_type" ColumnName="item_type" />
+                <ScalarProperty Name="update_status" ColumnName="update_status" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="mazdori" ColumnName="mazdori" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bill_Voucher_Or_Coupons_Details">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.Bill_Voucher_Or_Coupons_Details">
+              <MappingFragment StoreEntitySet="Bill_Voucher_Or_Coupons_Details">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+                <ScalarProperty Name="Voucher_Coupon_Code" ColumnName="Voucher_Coupon_Code" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.Brand">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Brand_Name" ColumnName="Brand_Name" />
+                <ScalarProperty Name="AddedBy_UserId" ColumnName="AddedBy_UserId" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+                <ScalarProperty Name="C_Time" ColumnName="_Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="parent_location" ColumnName="parent_location" />
+                <ScalarProperty Name="child_location" ColumnName="child_location" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer_Or_Vendor">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.Customer_Or_Vendor">
+              <MappingFragment StoreEntitySet="Customer_Or_Vendor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Customer_Vendor_Type" ColumnName="Customer_Vendor_Type" />
+                <ScalarProperty Name="customer_Or_Vendor_Name" ColumnName="customer_Or_Vendor_Name" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+                <ScalarProperty Name="C_Address" ColumnName="_Address" />
+                <ScalarProperty Name="AddedBy_UserId" ColumnName="AddedBy_UserId" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+                <ScalarProperty Name="C_Time" ColumnName="_Time" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="parent" ColumnName="parent" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="items">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.item">
+              <MappingFragment StoreEntitySet="items">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Brand_Id" ColumnName="Brand_Id" />
+                <ScalarProperty Name="Unit_Id" ColumnName="Unit_Id" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Purchase_Price" ColumnName="Purchase_Price" />
+                <ScalarProperty Name="Retail_Price" ColumnName="Retail_Price" />
+                <ScalarProperty Name="Have_Mfg_Or_Exp_Date" ColumnName="Have_Mfg_Or_Exp_Date" />
+                <ScalarProperty Name="Have_Batch_Or_Lot_No" ColumnName="Have_Batch_Or_Lot_No" />
+                <ScalarProperty Name="AlertQty" ColumnName="AlertQty" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="AddedBy_UserId" ColumnName="AddedBy_UserId" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+                <ScalarProperty Name="C_Time" ColumnName="_Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="update_status" ColumnName="update_status" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="Mazdori" ColumnName="Mazdori" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="locations">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.location">
+              <MappingFragment StoreEntitySet="locations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="parent_location" ColumnName="parent_location" />
+                <ScalarProperty Name="child_location" ColumnName="child_location" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loginlogs">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.loginlog">
+              <MappingFragment StoreEntitySet="loginlogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login_Userid" ColumnName="Login_Userid" />
+                <ScalarProperty Name="Login_Date" ColumnName="Login_Date" />
+                <ScalarProperty Name="Login_Time" ColumnName="Login_Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mmls">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.mml">
+              <MappingFragment StoreEntitySet="mml">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lk" ColumnName="lk" />
+                <ScalarProperty Name="dfrom" ColumnName="dfrom" />
+                <ScalarProperty Name="dto" ColumnName="dto" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="printed_bills_log">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.printed_bills_log">
+              <MappingFragment StoreEntitySet="printed_bills_log">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+                <ScalarProperty Name="Print_Status" ColumnName="Print_Status" />
+                <ScalarProperty Name="AddedBy_UserId" ColumnName="AddedBy_UserId" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+                <ScalarProperty Name="C_Time" ColumnName="_Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="settings">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.setting">
+              <MappingFragment StoreEntitySet="settings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="setting_code" ColumnName="setting_code" />
+                <ScalarProperty Name="setting1" ColumnName="setting" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="AddedBy_UserId" ColumnName="AddedBy_UserId" />
+                <ScalarProperty Name="C_date" ColumnName="_date" />
+                <ScalarProperty Name="C_time" ColumnName="_time" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Taxes">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.Tax">
+              <MappingFragment StoreEntitySet="Taxes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Tax_Name" ColumnName="Tax_Name" />
+                <ScalarProperty Name="Tax_Percent" ColumnName="Tax_Percent" />
+                <ScalarProperty Name="AddedBy_UserId" ColumnName="AddedBy_UserId" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+                <ScalarProperty Name="C_Time" ColumnName="_Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.Unit">
+              <MappingFragment StoreEntitySet="Units">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Unit_Name" ColumnName="Unit_Name" />
+                <ScalarProperty Name="Short_Name" ColumnName="Short_Name" />
+                <ScalarProperty Name="AddedBy_UserId" ColumnName="AddedBy_UserId" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+                <ScalarProperty Name="C_Time" ColumnName="_Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Voucher_Or_Coupons">
+            <EntityTypeMapping TypeName="POS_Sabzi_MandiModel.Voucher_Or_Coupons">
+              <MappingFragment StoreEntitySet="Voucher_Or_Coupons">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Voucher_Coupon_Code" ColumnName="Voucher_Coupon_Code" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="C_Description" ColumnName="_Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
